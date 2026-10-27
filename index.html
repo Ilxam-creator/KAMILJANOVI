@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KAMILJANOVI — ремонт кондиционеров, холодильников, стиральных машин и двухконтурных котлов по всему Каракалпакстану.">
+  <title>KAMILJANOVI — Ремонт техники</title>
+  <style>
+    :root {
+      --navy: #06172b;
+      --panel: #0d2340;
+      --blue: #08a5ff;
+      --green: #08bd63;
+      --white: #f7fbff;
+      --muted: #c8d7e8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(3, 15, 30, .96);
+      border-bottom: 1px solid rgba(56, 189, 248, .25);
+      backdrop-filter: blur(10px);
+    }
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo { font-size: 25px; font-weight: 800; letter-spacing: .5px; }
+    .logo span { color: var(--blue); }
+    .tagline { color: var(--muted); font-size: 12px; }
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a { text-decoration: none; font-weight: 700; font-size: 14px; }
+    nav a:hover { color: var(--blue); }
+
+    .hero {
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(3, 13, 28, .96) 0%, rgba(3, 13, 28, .78) 48%, rgba(3, 13, 28, .18) 100%),
+        url("images/background.jpg") center 42% / cover no-repeat;
+      border-bottom: 1px solid #153553;
+    }
+    .hero-content { max-width: 650px; padding: 70px 0; }
+    .eyebrow {
+      display: inline-block;
+      color: #8edcff;
+      border: 1px solid rgba(8, 165, 255, .55);
+      background: rgba(8, 165, 255, .12);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    h1 { font-size: clamp(36px, 5.5vw, 62px); line-height: 1.08; margin-bottom: 20px; }
+    h1 span { color: var(--blue); }
+    .hero p { max-width: 560px; color: var(--muted); font-size: 18px; margin-bottom: 28px; }
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .button {
+      display: inline-flex; justify-content: center; align-items: center;
+      min-height: 48px; padding: 12px 20px; border-radius: 9px;
+      text-decoration: none; font-weight: 800; transition: .2s;
+    }
+    .button:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .telegram { background: var(--blue); color: white; }
+    .phone { background: var(--green); color: white; }
+
+    section { padding: 68px 0; }
+    .section-heading { text-align: center; margin-bottom: 32px; }
+    .section-heading h2 { font-size: clamp(27px, 4vw, 38px); margin-bottom: 8px; }
+    .section-heading p { color: var(--muted); }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: linear-gradient(145deg, #102b4c, #091b32);
+      border: 1px solid #244568;
+      border-radius: 14px;
+      overflow: hidden;
+      padding: 24px 20px;
+      min-height: 220px;
+    }
+    .card .icon { font-size: 38px; }
+    .card h3 { color: #69cfff; font-size: 19px; margin: 10px 0; }
+    .card p { color: var(--muted); font-size: 14px; }
+
+    .why { background: #091b31; border-top: 1px solid #183956; border-bottom: 1px solid #183956; }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .feature { padding: 8px 14px; border-left: 2px solid #168bd0; }
+    .feature h3 { font-size: 16px; margin-bottom: 5px; }
+    .feature p { color: var(--muted); font-size: 13px; }
+
+    .coverage {
+      background: linear-gradient(120deg, #0d3157, #07172c);
+      text-align: center;
+    }
+    .coverage p { color: var(--muted); max-width: 720px; margin: 0 auto; }
+
+    .contact-panel {
+      background: #0d2340;
+      border: 1px solid #21466c;
+      border-radius: 18px;
+      padding: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .contact-panel p { color: var(--muted); margin-top: 6px; }
+    .contact-details { margin-top: 12px; }
+    .contact-details a { color: #77d4ff; text-decoration: none; }
+    footer { text-align: center; color: #9fb4c9; padding: 24px 12px; font-size: 13px; }
+
+    @media (max-width: 850px) {
+      .services, .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero { background-position: 58% center; }
+      .contact-panel { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .header-inner { padding: 14px 0; flex-direction: column; align-items: flex-start; }
+      nav { gap: 14px; }
+      .hero { min-height: 500px; background-position: 60% center; }
+      .hero-content { padding: 58px 0; }
+      .hero p { font-size: 16px; }
+      .services, .features { grid-template-columns: 1fr; }
+      section { padding: 48px 0; }
+      .contact-panel { padding: 22px; }
+      .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div>
+        <div class="logo">KAMIL<span>JANOVI</span></div>
+        <div class="tagline">Ремонт техники по всему Каракалпакстану</div>
+      </div>
+      <nav aria-label="Главная навигация">
+        <a href="#home">Главная</a>
+        <a href="#services">Услуги</a>
+        <a href="#about">О нас</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">НУКУС • ВЕСЬ КАРАКАЛПАКСТАН</div>
+          <h1>Ремонт техники <span>по всему Каракалпакстану</span></h1>
+          <p>Ремонт кондиционеров, холодильников, стиральных машин и двухконтурных котлов. Свяжитесь с нами, чтобы обсудить неисправность и ремонт.</p>
+          <div class="buttons">
+            <a class="button telegram" href="https://t.me/Op990y5" target="_blank" rel="noopener noreferrer">✈ Написать в Telegram</a>
+            <a class="button phone" href="tel:+998701687274">☎ Позвонить: +998 70 168 72 74</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Наши услуги</h2>
+          <p>Диагностика и ремонт бытовой техники</p>
+        </div>
+        <div class="services">
+          <article class="card">
+            <div class="icon">❄️</div>
+            <h3>Кондиционеры</h3>
+            <p>Поиск неисправностей и ремонт кондиционеров.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🧊</div>
+            <h3>Холодильники</h3>
+            <p>Диагностика и ремонт бытовых холодильников.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🔥</div>
+            <h3>Двухконтурные котлы</h3>
+            <p>Диагностика и ремонт отопительных котлов.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🫧</div>
+            <h3>Стиральные машины</h3>
+            <p>Поиск причин поломок и ремонт стиральных машин.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Почему выбирают KAMILJANOVI?</h2>
+          <p>Внимательно разбираемся с каждой заявкой</p>
+        </div>
+        <div class="features">
+          <div class="feature"><h3>🛠 Подход к ремонту</h3><p>Сначала выясняем причину неисправности.</p></div>
+          <div class="feature"><h3>🔎 Диагностика</h3><p>Обсуждаем проблему и возможные варианты ремонта.</p></div>
+          <div class="feature"><h3>📍 Выезд по региону</h3><p>Работаем по Нукусу и другим населённым пунктам Каракалпакстана.</p></div>
+          <div class="feature"><h3>💬 Удобная связь</h3><p>Можно позвонить или написать в Telegram.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="coverage">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Работаем по всему Каракалпакстану</h2>
+          <p>Нуку́с и другие населённые пункты Республики Каракалпакстан. Доступность выезда уточняйте по телефону.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <h2>Свяжитесь с нами</h2>
+            <p>Расскажите, какая техника нуждается в ремонте.</p>
+            <div class="contact-details">
+              <p>Телефон: <a href="tel:+998701687274">+998 70 168 72 74</a></p>
+              <p>Telegram: <a href="https://t.me/Op990y5" target="_blank" rel="noopener noreferrer">@Op990y5</a></p>
+            </div>
+          </div>
+          <div class="buttons">
+            <a class="button telegram" href="https://t.me/Op990y5" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+            <a class="button phone" href="tel:+998701687274">Позвонить сейчас</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 KAMILJANOVI — Ремонт техники по всему Каракалпакстану.</footer>
+</body>
+</html>
